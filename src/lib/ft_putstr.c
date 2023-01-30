@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 16:07:50 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/01/27 17:55:39 by anrodri2         ###   ########.fr       */
+/*   Created: 2023/01/27 18:42:57 by anrodri2          #+#    #+#             */
+/*   Updated: 2023/01/27 18:45:07 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+#include "../header.h"
 
-int	main(int args, char **argv)
+void	ft_putstr(char *string)
 {
-	if (errors(args, argv) == ERROR)
-		return (1);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	if (!string)
+		return ;
+	while (string[i])
+	{
+		write(1, &string[i], 1);
+		i++;
+	}
 }

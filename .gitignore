@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Visual Studio Code Config
+*.vscode/
+
+# Executable 
+push_swap
+
+# Mac OS X folder Config
+*.DS_Store/
