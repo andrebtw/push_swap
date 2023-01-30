@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 18:07:21 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/01/30 17:07:22 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/01/30 18:01:32 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	put_char_error(char *string)
 			return (ERROR);
 		i++;
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 int	error_printing(void)

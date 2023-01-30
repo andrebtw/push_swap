@@ -6,7 +6,7 @@
 #    By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 16:58:58 by anrodri2          #+#    #+#              #
-#    Updated: 2023/01/30 17:09:54 by anrodri2         ###   ########.fr        #
+#    Updated: 2023/01/30 18:30:30 by anrodri2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,12 @@ SRC_DIR = src
 SRCS =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/errors/error_printing.c \
 		$(SRC_DIR)/errors/errors.c \
+		$(SRC_DIR)/parsing/parsing.c \
 		$(SRC_DIR)/lib/ft_putstr.c \
 		$(SRC_DIR)/lib/ft_strlen.c \
 		$(SRC_DIR)/lib/ft_isdigit.c \
+		$(SRC_DIR)/lib/ft_tablen.c \
+		$(SRC_DIR)/lib/ft_atoi.c \
 
 OBJS = $(SRCS:.c=.o)
 
