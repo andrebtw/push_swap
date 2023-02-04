@@ -6,7 +6,7 @@
 #    By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 16:58:58 by anrodri2          #+#    #+#              #
-#    Updated: 2023/02/04 16:15:39 by anrodri2         ###   ########.fr        #
+#    Updated: 2023/02/04 16:47:29 by anrodri2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/errors/error_printing.c \
 		$(SRC_DIR)/errors/errors.c \
 		$(SRC_DIR)/parsing/parsing.c \
-		$(SRC_DIR)/linked_lists/linked_lists_main.c \
+		$(SRC_DIR)/linked_lists/linked_list_main.c \
 		$(SRC_DIR)/lib/ft_putstr.c \
 		$(SRC_DIR)/lib/ft_strlen.c \
 		$(SRC_DIR)/lib/ft_isdigit.c \
