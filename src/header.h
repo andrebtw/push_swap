@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/01/30 18:30:23 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/04 16:15:19 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,21 @@
 # define STDOUT 1
 # define STDERR 2
 
+/* LINKED LISTS*/
+typedef struct s_linked_list
+{
+	int		value;
+	void	*next;
+};	t_list;
+
+t_list	*createlst(int value);
+void    addback(t_list **lst, t_list *new);
+
 /* STRUCTS */
 typedef struct s_stack
 {
-	int	*stack_a;
-	int	*stack_b;
+	t_list	stack_a;
+	t_list	stack_b
 }	t_stack;
 
 /* PUSH SWAP FUNCTIONS */
