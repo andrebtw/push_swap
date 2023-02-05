@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:19:01 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/05 11:10:59 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:57:52 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,13 @@ int	stack_create(char **argv, t_stack *stack)
 	i = 1;
 	while (argv[i])
 	{
-		if (addendvalue(&(stack->a), ft_atoi(argv[i])) == MALLOC_ERR)
+		if (i == 1)
+		{
+			stack->a = createlst(ft_atoi(argv[i]));
+			if (!stack->a)
+				return (MALLOC_ERR);
+		}
+		else if (addendvalue(&(stack->a), ft_atoi(argv[i])) == MALLOC_ERR)
 			return (MALLOC_ERR);
 		i++;
 	}
@@ -28,10 +34,7 @@ int	stack_create(char **argv, t_stack *stack)
 
 int	parsing(char **argv, t_stack *stack)
 {
-	stack->a = createlst();
-	stack->b = createlst();
-	if (!stack->a || !stack->b)
-		return (MALLOC_ERR);
+	stack->b = NULL;
 	if (stack_create(argv, stack) == MALLOC_ERR)
 		return (MALLOC_ERR);
 	return (EXIT_SUCCESS);

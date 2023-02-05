@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 11:38:48 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/05 14:29:38 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:58:04 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,11 @@ static void	swap_list(t_list **lst, char *operation)
 	tmp = *lst;
 	if (!tmp->next)
 		return ;
-	tmp = tmp->next;
-	if (!tmp->next)
-		return ;
 	tmp_value = tmp->value;
 	tmp = tmp->next;
 	tmp_value2 = tmp->value;
 	tmp->value = tmp_value;
 	tmp2 = *lst;
-	tmp2 = tmp2->next;
 	tmp2->value = tmp_value2;
 	if (operation)
 		ft_putstr(operation);
@@ -41,7 +37,11 @@ void	swap(t_stack *stack, char c)
 	if (c == 'a')
 		swap_list(&(stack->a), "sa\n");
 	if (c == 'b')
-		swap_list(&(stack->a), "sb\n");
+	{
+		if (!stack->b)
+			return ;
+		swap_list(&(stack->b), "sb\n");
+	}
 	if (c == 's')
 	{
 		swap_list(&(stack->a), "ss\n");

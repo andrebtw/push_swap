@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:00:10 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/05 11:11:59 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/05 16:35:26 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ void	freelst(t_list **lst)
 	free(tmp);
 }
 
-t_list	*createlst(void)
+t_list	*createlst(int value)
 {
 	t_list  *r_list;
 
 	r_list = malloc (sizeof(t_list));
 	if (!r_list)
     	return (NULL);
+	r_list->value = value;
 	r_list->next = NULL;
 	return (r_list);
 }
@@ -44,6 +45,7 @@ int	addendvalue(t_list **lst, int value)
 		tmp = tmp->next;
 	tmp->next = adding;
 	adding->value = value;
+	adding->next = NULL;
 	return (EXIT_SUCCESS);
 }
 
@@ -57,12 +59,18 @@ void	addendlst(t_list **lst, t_list *new)
     tmp->next = new;
 }
 
+void	addfrontlst(t_list **lst, t_list *new)
+{
+	new->next = *lst;
+	*lst = new;
+}
+
 void	printlist(t_list **lst)
 {
 	t_list  *tmp;
 
     tmp = *lst;
-	//printf("%d\n", tmp->value);
+	printf("%d\n", tmp->value);
     while (tmp->next)
 	{
         tmp = tmp->next;
