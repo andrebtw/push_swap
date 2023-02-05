@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:00:10 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/04 17:38:29 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/05 11:11:59 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ void	printlist(t_list **lst)
 	t_list  *tmp;
 
     tmp = *lst;
+	//printf("%d\n", tmp->value);
     while (tmp->next)
 	{
-		printf("%d\n", tmp->value);
         tmp = tmp->next;
+		printf("%d\n", tmp->value);
 	}
 }

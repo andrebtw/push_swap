@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/04 17:38:33 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/05 14:18:07 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ int		error_printing(void);
 
 /* STACK CREATION FUNCTIONS */
 int		parsing(char **argv, t_stack *stack);
+
+/* OPERATIONS */
+void	swap(t_stack *stack, char c);
+void	push(t_stack *stack, char c);
 
 /* LIBC FUNCTIONS */
 size_t	ft_strlen(char *string);
