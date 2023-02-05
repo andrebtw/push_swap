@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/05 16:34:16 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/05 17:37:42 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	freelst(t_list **lst);
 void	printlist(t_list **lst);
 int		addendvalue(t_list **lst, int value);
 void	addfrontlst(t_list **lst, t_list *new);
+void	createarglst(t_list **lst, int value);
 
 /* STRUCTS */
 typedef struct s_stack
