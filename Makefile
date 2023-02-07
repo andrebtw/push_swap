@@ -6,7 +6,7 @@
 #    By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 16:58:58 by anrodri2          #+#    #+#              #
-#    Updated: 2023/02/05 14:13:46 by anrodri2         ###   ########.fr        #
+#    Updated: 2023/02/07 15:32:55 by anrodri2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/linked_lists/linked_list_main.c \
 		$(SRC_DIR)/operations/swap.c \
 		$(SRC_DIR)/operations/push.c \
+		$(SRC_DIR)/operations/rotate.c \
 		$(SRC_DIR)/lib/ft_putstr.c \
 		$(SRC_DIR)/lib/ft_strlen.c \
 		$(SRC_DIR)/lib/ft_isdigit.c \
