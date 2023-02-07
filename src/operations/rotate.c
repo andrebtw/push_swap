@@ -6,13 +6,13 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 15:31:57 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/07 19:05:45 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/07 20:43:09 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-static void	delete_elem(t_list **lst, int value)
+static int rotate_list(t_list **lst, char *operation)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
@@ -22,33 +22,12 @@ static void	delete_elem(t_list **lst, int value)
 	while (tmp->next)
 	{
 		tmp = tmp->next;
-		if (tmp->value == value)
-		{
-			tmp2->next = NULL;
-			return ;
-		}
+		if (!tmp->next)
+			break ;
 		tmp2 = tmp2->next;
-	}	
-	tmp->next = NULL;
-	tmp = NULL;
-	free(tmp);
-}
-
-static int rotate_list(t_list **lst, char *operation)
-{
-	t_list	*tmp;
-	t_list	*new_list;
-
-	tmp = *lst;
-	if (!tmp->next)
-		return (ERROR);
-	while (tmp->next)
-		tmp = tmp->next;
-	new_list = createlst(tmp->value);
-	if (!new_list)
-		return (MALLOC_ERR);
-	addfrontlst(&(*lst), new_list);
-	delete_elem(lst, tmp->value);
+	}
+	addfrontlst(lst, tmp);
+	tmp2->next = NULL;
 	if (operation)
 		ft_putstr(operation);
 	return (EXIT_SUCCESS);
