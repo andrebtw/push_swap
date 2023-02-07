@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:07:50 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/07 20:44:03 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/07 20:51:04 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,7 @@ int	init(char **argv)
 	//swap(&stack, 'a');
 	
 	//push(&stack, 'b');
-	push(&stack, 'b');
-	push(&stack, 'b');
-	push(&stack, 'b');
 	rotate(&stack, 'a');
-	push(&stack, 'b');
-	rotate(&stack, 'b');
 	printf("A :\n");
 	printlist(&(stack.a));
 	printf("\n");
