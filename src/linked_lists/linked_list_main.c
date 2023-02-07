@@ -6,19 +6,11 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:00:10 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/05 18:07:43 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:20:55 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
-
-void	freelst(t_list **lst)
-{
-	t_list	*tmp;
-
-	tmp = *lst;
-	free(tmp);
-}
 
 t_list	*createlst(int value)
 {
@@ -37,11 +29,9 @@ void	createarglst(t_list **lst, int value)
 	*lst = malloc (sizeof(t_list));
 	if (!(*lst))
 	{
-		printf("TEST\n");
-    	return	;
+		return ;
 	}
 	(*lst)->value = value;
-	printf("TEST1 : %d\n", (*lst)->value);
 	(*lst)->next = NULL;
 }
 
@@ -83,6 +73,8 @@ void	printlist(t_list **lst)
 	t_list  *tmp;
 
     tmp = *lst;
+	if (!tmp)
+		return ;
 	printf("%d\n", tmp->value);
     while (tmp->next)
 	{

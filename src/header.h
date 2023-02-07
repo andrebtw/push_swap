@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/05 17:37:42 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/07 14:54:50 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_linked_list
 {
 	int		value;
 	void	*next;
+	
 }	t_list;
 
 t_list	*createlst(int value);
