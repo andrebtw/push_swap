@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:02:57 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/07 15:20:25 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:56:51 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	push_list(t_list **a, t_list **b, char *operation)
 	*b = delete->next;
 	if (operation)
 		ft_putstr(operation);
-	return (free(delete), EXIT_SUCCESS);
+	return (free(delete), delete = NULL, EXIT_SUCCESS);
 }
 
 void	push(t_stack *stack, char c)

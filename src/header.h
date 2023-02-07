@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/07 15:32:47 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:39:33 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_linked_list
 
 t_list	*createlst(int value);
 void	addendlst(t_list **lst, t_list *new);
-void	freelst(t_list **lst);
+void	freelst(t_list	**lst);
 void	printlist(t_list **lst);
 int		addendvalue(t_list **lst, int value);
 void	addfrontlst(t_list **lst, t_list *new);
