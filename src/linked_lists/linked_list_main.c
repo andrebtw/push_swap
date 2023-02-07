@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 16:00:10 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/07 20:17:00 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/07 22:31:42 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ void	createarglst(t_list **lst, int value)
 {
 	*lst = malloc (sizeof(t_list));
 	if (!(*lst))
-	{
 		return ;
-	}
 	(*lst)->value = value;
 	(*lst)->next = NULL;
 }

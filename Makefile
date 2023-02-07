@@ -6,7 +6,7 @@
 #    By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 16:58:58 by anrodri2          #+#    #+#              #
-#    Updated: 2023/02/07 20:46:49 by anrodri2         ###   ########.fr        #
+#    Updated: 2023/02/07 22:46:38 by anrodri2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/lib/ft_isdigit.c \
 		$(SRC_DIR)/lib/ft_tablen.c \
 		$(SRC_DIR)/lib/ft_atoi.c \
+		$(SRC_DIR)/lib/ft_atoi_long.c \
 
 OBJS = $(SRCS:.c=.o)
 
