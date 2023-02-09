@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:19:01 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/05 16:57:52 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/09 17:12:50 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	stack_create(char **argv, t_stack *stack)
 	{
 		if (i == 1)
 		{
-			stack->a = createlst(ft_atoi(argv[i]));
+			stack->a = createlst(ft_atoi_long(argv[i]));
 			if (!stack->a)
 				return (MALLOC_ERR);
 		}
-		else if (addendvalue(&(stack->a), ft_atoi(argv[i])) == MALLOC_ERR)
+		else if (addendvalue(&(stack->a), ft_atoi_long(argv[i])) == MALLOC_ERR)
 			return (MALLOC_ERR);
 		i++;
 	}
