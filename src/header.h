@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/09 17:49:32 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:46:56 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,14 @@ int			error_printing(void);
 
 /* STACK CREATION FUNCTIONS */
 int			parsing(char **argv, t_stack *stack);
+typedef struct s_parsing
+{
+	long long	*list;
+	int			*index_list;
+	int			index;
+	int			list_size;
+}	t_parsing;
+# define USED_NB -199
 
 /* OPERATIONS */
 void		swap(t_stack *stack, char c);
@@ -67,7 +75,7 @@ void		rotate(t_stack *stack, char c);
 void		reverse_rotate(t_stack *stack, char c);
 
 /* EXEC */
-void		transform_nb(t_list **lst);
+
 
 /* LIBC FUNCTIONS */
 size_t		ft_strlen(char *string);
