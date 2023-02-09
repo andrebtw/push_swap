@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/09 18:46:56 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:39:29 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@
 /* NUMBERS */
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
+# define LONG_LONG_MIN -9223372036854775807
+# define LONG_LONG_MAX 9223372036854775806
 
 /* LINKED LISTS*/
 typedef struct s_linked_list
 {
 	long long	value;
-	int			transformed_value;
 	void		*next;
-	
 }	t_list;
 
 t_list		*createlst(long long value);

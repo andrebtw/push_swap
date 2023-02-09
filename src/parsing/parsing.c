@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:19:01 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/09 19:11:13 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:45:26 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ int	stack_create(t_stack *stack, t_parsing *parsing)
 	int	i;
 
 	i = 0;
-	while (i != parsing->list_size)
+	while (i < parsing->list_size)
 	{
 		if (i == 0)
 		{
-			stack->a = createlst(parsing->list[i]);
+			stack->a = createlst(parsing->index_list[i]);
 			if (!stack->a)
 				return (MALLOC_ERR);
 		}
-		else if (addendvalue(&(stack->a), parsing->list[i]) == MALLOC_ERR)
+		else if (addendvalue(&(stack->a), parsing->index_list[i]) == MALLOC_ERR)
 			return (MALLOC_ERR);
 		i++;
 	}
@@ -34,6 +34,31 @@ int	stack_create(t_stack *stack, t_parsing *parsing)
 
 int	list_index(t_parsing *parsing)
 {
+	int			i;
+	int			saved_index;
+	long long	low_nb;
+
+	i = 0;
+	parsing->index_list = (int *) malloc (parsing->list_size * sizeof(int));
+	parsing->index = 1;
+	while (parsing->index < parsing->list_size + 1)
+	{
+		low_nb = LONG_LONG_MAX;
+		i = 0;
+		while (i < parsing->list_size)
+		{
+			if (low_nb > parsing->list[i])
+			{
+				low_nb = parsing->list[i];
+				saved_index = i;
+			}
+			i++;
+		}
+		parsing->index_list[saved_index] = parsing->index;
+		parsing->index++;
+		parsing->list[saved_index] = LONG_LONG_MAX;
+	}
+	free(parsing->index_list);
 	return (EXIT_SUCCESS);
 }
 
@@ -56,7 +81,7 @@ int	parsing(char **argv, t_stack *stack)
 	t_parsing	parsing_v;
 
 	parsing_v.index = 0;
-	parsing_v.list = (long long *) malloc (999999);
+	parsing_v.list = (long long *) malloc (sizeof(long long) * ft_tablen(argv));
 	parsing_v.list_size = ft_tablen(argv) - 1;
 	if (!parsing_v.list)
 		return (MALLOC_ERR);
@@ -67,5 +92,6 @@ int	parsing(char **argv, t_stack *stack)
 		return (MALLOC_ERR);
 	if (stack_create(stack, &parsing_v) == MALLOC_ERR)
 		return (MALLOC_ERR);
+	free(parsing_v.list);
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:34:29 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/09 17:52:57 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:39:41 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ t_list	*createlst(long long value)
 	if (!r_list)
     	return (NULL);
 	r_list->value = value;
-	r_list->transformed_value = 0;
 	r_list->next = NULL;
 	return (r_list);
 }
@@ -47,7 +46,6 @@ void	createarglst(t_list **lst, long long value)
 	*lst = malloc (sizeof(t_list));
 	if (!(*lst))
 		return ;
-	(*lst)->transformed_value = 0;
 	(*lst)->value = value;
 	(*lst)->next = NULL;
 }
@@ -65,7 +63,6 @@ int	addendvalue(t_list **lst, long long value)
 		tmp = tmp->next;
 	tmp->next = adding;
 	adding->value = value;
-	adding->transformed_value = 0;
 	adding->next = NULL;
 	return (EXIT_SUCCESS);
 }
@@ -93,10 +90,10 @@ void	printlist(t_list **lst)
     tmp = *lst;
 	if (!tmp)
 		return ;
-	printf("%lld : %d\n", tmp->value, tmp->transformed_value);
+	printf("%lld\n", tmp->value);
     while (tmp->next)
 	{
         tmp = tmp->next;
-		printf("%lld : %d\n", tmp->value, tmp->transformed_value);
+		printf("%lld\n", tmp->value);
 	}
 }

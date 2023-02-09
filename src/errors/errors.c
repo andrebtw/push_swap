@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:45:15 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/07 23:34:27 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/09 23:14:43 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int	check_chars(char **argv)
 		while (argv[i][j])
 		{
 			if (!ft_isdigit(argv[i][j]))
-				return (error_printing());
+				if (argv[i][j] != '-')
+					return (error_printing());
 			j++;
 		}
 		i++;
