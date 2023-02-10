@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/10 13:07:45 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/10 16:53:42 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,16 @@ void		reverse_rotate(t_stack *stack, char c);
 /* EXEC */
 int			exec(int args, t_stack *stack);
 int			is_sorted(t_list **lst, int inverse);
+int			list_max(t_list **lst);
+int			top_element(t_list **lst);
+int			last_element(t_list **lst);
+int			second_element(t_list **lst);
+int			before_last_element(t_list **lst);
+int			third_element(t_list **lst);
 int			two_(t_stack *stack, char c);
 int			three_(t_stack *stack, char c, int inverse);
 int			four_(t_stack *stack);
+int			five_(t_stack *stack);
 
 
 /* LIBC FUNCTIONS */

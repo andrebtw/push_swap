@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:07:50 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/10 13:17:12 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/10 17:07:48 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ int	init(int args, char **argv)
 
 	if (parsing(argv, &(stack)) == MALLOC_ERR)
 		return (MALLOC_ERR);
-	
+	//printlist(&(stack.a));
 	exec(args, &stack);
-	/*
-	printf("A :\n");
+
+	
+	/*printf("A :\n");
 	printlist(&(stack.a));
 	printf("\n");
 	printf("B :\n");

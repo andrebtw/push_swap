@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 02:01:11 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/10 13:12:18 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/10 15:12:16 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	sort_three(t_stack *stack, char c, int inverse)
 			swap(stack, c);
 		if (check_rra(&(stack->a), inverse))
 			reverse_rotate(stack, c);
+		if (check_swap(&(stack->a), inverse))
+			swap(stack, c);
 	}
 	if (c == 'b')
 	{
@@ -63,6 +65,8 @@ int	sort_three(t_stack *stack, char c, int inverse)
 			swap(stack, c);
 		if (check_rra(&(stack->b), inverse))
 			reverse_rotate(stack, c);
+		if (check_swap(&(stack->b), inverse))
+			swap(stack, c);
 	}
 	return (EXIT_SUCCESS);
 }
@@ -70,14 +74,8 @@ int	sort_three(t_stack *stack, char c, int inverse)
 int	three_(t_stack *stack, char c, int inverse)
 {
 	if (c == 'a')
-	{
-		while (!is_sorted(&(stack->a), inverse))
-			sort_three(stack, c, inverse);
-	}
+		sort_three(stack, c, inverse);
 	if (c == 'b')
-	{
-		while (!is_sorted(&(stack->b), inverse))
-			sort_three(stack, c, inverse);
-	}
+		sort_three(stack, c, inverse);
 	return (EXIT_SUCCESS);
 }
