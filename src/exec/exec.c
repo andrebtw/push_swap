@@ -6,13 +6,13 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 00:01:19 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/10 11:31:01 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/10 13:19:46 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int	is_sorted(t_list **lst)
+int	is_sorted(t_list **lst, int inverse)
 {
 	t_list	*tmp;
 	t_list	*tmp2;
@@ -22,8 +22,12 @@ int	is_sorted(t_list **lst)
 	while (tmp->next)
 	{
 		tmp = tmp->next;
-		if (tmp->value < tmp2->value)
-			return (0);
+		if (inverse)
+			if (tmp->value > tmp2->value)
+				return (0);
+		if (!inverse)
+			if (tmp->value < tmp2->value)
+				return (0);
 		tmp2 = tmp2->next;
 	}
 	return (1);
@@ -31,11 +35,16 @@ int	is_sorted(t_list **lst)
 
 int	exec(int args, t_stack *stack)
 {
+	if (is_sorted(&(stack->a), 0))
+		return (EXIT_SUCCESS);
 	if (args - 1 == 2)
-		if (two_(stack) == MALLOC_ERR)
+		if (two_(stack, 'a') == MALLOC_ERR)
 			return (MALLOC_ERR);
 	if (args - 1 == 3)
-		if (three_(stack) == MALLOC_ERR)
+		if (three_(stack, 'a', 0) == MALLOC_ERR)
+			return (MALLOC_ERR);
+	if (args - 1 == 4)
+		if (four_(stack) == MALLOC_ERR)
 			return (MALLOC_ERR);
 	return (EXIT_SUCCESS);
 }

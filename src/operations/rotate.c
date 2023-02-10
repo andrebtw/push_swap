@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 15:31:57 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/10 02:06:43 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:52:47 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static int	rotate_list(t_list **lst, char *operation)
 	*lst = delete->next;
 	free(delete);
 	delete = NULL;
+	if (operation)
+		ft_putstr(operation);
 	return (EXIT_SUCCESS);
 }
 
