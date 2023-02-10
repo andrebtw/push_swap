@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:19:01 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/09 23:45:26 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/10 01:07:16 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	stack_create(t_stack *stack, t_parsing *parsing)
 			return (MALLOC_ERR);
 		i++;
 	}
+	free(parsing->index_list);
 	return (EXIT_SUCCESS);
 }
 
@@ -58,7 +59,6 @@ int	list_index(t_parsing *parsing)
 		parsing->index++;
 		parsing->list[saved_index] = LONG_LONG_MAX;
 	}
-	free(parsing->index_list);
 	return (EXIT_SUCCESS);
 }
 

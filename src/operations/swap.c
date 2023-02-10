@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 11:38:48 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/05 17:06:01 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/10 00:28:15 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ void	swap(t_stack *stack, char c)
 	if (c == 'a')
 	{
 		if (!stack->a)
+		{
 			return ;
+		}
 		swap_list(&(stack->a), "sa\n");
 	}
 	if (c == 'b')

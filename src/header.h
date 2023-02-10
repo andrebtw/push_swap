@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/09 23:39:29 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/10 00:03:53 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void		rotate(t_stack *stack, char c);
 void		reverse_rotate(t_stack *stack, char c);
 
 /* EXEC */
+int			exec(int args, t_stack *stack);
+int			two_(t_stack *stack);
 
 
 /* LIBC FUNCTIONS */
