@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 15:31:57 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/07 21:35:24 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/10 02:06:43 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ void	rotate(t_stack *stack, char c)
 	{
 		if (!stack->a)
 			return ;
-		rotate_list(&(stack->a), "sa\n");
+		rotate_list(&(stack->a), "ra\n");
 	}
 	if (c == 'b')
 	{
 		if (!stack->b)
 			return ;
-		rotate_list(&(stack->b), "sb\n");
+		rotate_list(&(stack->b), "rb\n");
 	}
 	if (c == 'r')
 	{
 		if (!stack->b || !stack->a)
 			return ;
-		rotate_list(&(stack->a), "ss\n");
+		rotate_list(&(stack->a), "rr\n");
 		rotate_list(&(stack->b), NULL);
 	}
 }

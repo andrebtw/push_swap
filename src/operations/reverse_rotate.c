@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:45:55 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/07 20:47:17 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/10 02:06:37 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,19 @@ void	reverse_rotate(t_stack *stack, char c)
 	{
 		if (!stack->a)
 			return ;
-		r_rotate_list(&(stack->a), "sa\n");
+		r_rotate_list(&(stack->a), "rra\n");
 	}
 	if (c == 'b')
 	{
 		if (!stack->b)
 			return ;
-		r_rotate_list(&(stack->b), "sb\n");
+		r_rotate_list(&(stack->b), "rrb\n");
 	}
 	if (c == 'r')
 	{
 		if (!stack->b || !stack->a)
 			return ;
-		r_rotate_list(&(stack->a), "ss\n");
+		r_rotate_list(&(stack->a), "rrr\n");
 		r_rotate_list(&(stack->b), NULL);
 	}
 }
