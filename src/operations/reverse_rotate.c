@@ -6,13 +6,13 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:45:55 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/10 02:06:37 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:28:26 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-static int r_rotate_list(t_list **lst, char *operation)
+static int	r_rotate_list(t_list **lst, char *operation)
 {
 	t_list	*tmp;
 	t_list	*tmp2;

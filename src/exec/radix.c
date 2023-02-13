@@ -6,12 +6,24 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:05:34 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/13 17:19:39 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:36:09 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
+int	nb_size_bits(int number)
+{
+	int	i;
+
+	i = 0;
+	while (number != 0)
+	{
+		number = number / 2;
+		i++;
+	}
+	return (i);
+}
 
 int	radix_loop(t_radix *radix, t_stack *stack)
 {
@@ -19,7 +31,7 @@ int	radix_loop(t_radix *radix, t_stack *stack)
 	int	size;
 
 	size = radix->list_size;
-	bit_size = nb_size_bits(size); 
+	bit_size = nb_size_bits(size);
 	while (bit_size)
 	{
 		size = radix->list_size;

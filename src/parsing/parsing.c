@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:19:01 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/10 01:07:16 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:32:18 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,21 @@ int	list_index(t_parsing *parsing)
 	int			saved_index;
 	long long	low_nb;
 
-	i = 0;
 	parsing->index_list = (int *) malloc (parsing->list_size * sizeof(int));
+	if (!parsing->index_list)
+		return (MALLOC_ERR);
 	parsing->index = 1;
 	while (parsing->index < parsing->list_size + 1)
 	{
 		low_nb = LONG_LONG_MAX;
-		i = 0;
-		while (i < parsing->list_size)
+		i = -1;
+		while (++i < parsing->list_size)
 		{
 			if (low_nb > parsing->list[i])
 			{
 				low_nb = parsing->list[i];
 				saved_index = i;
 			}
-			i++;
 		}
 		parsing->index_list[saved_index] = parsing->index;
 		parsing->index++;
@@ -88,10 +88,9 @@ int	parsing(char **argv, t_stack *stack)
 	stack->b = NULL;
 	if (list_create(argv, &parsing_v) == MALLOC_ERR)
 		return (MALLOC_ERR);
-	if (list_index(&parsing_v))
+	if (list_index(&parsing_v) == MALLOC_ERR)
 		return (MALLOC_ERR);
 	if (stack_create(stack, &parsing_v) == MALLOC_ERR)
 		return (MALLOC_ERR);
-	free(parsing_v.list);
-	return (EXIT_SUCCESS);
+	return (free(parsing_v.list), EXIT_SUCCESS);
 }

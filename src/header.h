@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/13 17:06:25 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:06:51 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 # define HEADER_H
 
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
-# include <stdio.h>
 
 # define ERROR -10
 # define MALLOC_ERR -20
@@ -57,7 +55,7 @@ typedef struct s_stack
 int			errors(int argc, char **argv);
 int			error_printing(void);
 
-/* STACK CREATION FUNCTIONS */
+/* PARSING */
 int			parsing(char **argv, t_stack *stack);
 typedef struct s_parsing
 {
@@ -65,6 +63,7 @@ typedef struct s_parsing
 	int			*index_list;
 	int			index;
 	int			list_size;
+	int			is_quoted;
 }	t_parsing;
 # define USED_NB -199
 
@@ -89,7 +88,7 @@ int			four_(t_stack *stack);
 int			five_(t_stack *stack);
 int			radix(t_stack *stack);
 int			list_size(t_list **lst);
-int			nb_size_bits(int number);
+int			list_max2(t_list **lst, int max_nb);
 
 typedef struct s_radix
 {
@@ -104,5 +103,7 @@ int			ft_isdigit(int c);
 size_t		ft_tablen(char **tab);
 int			ft_atoi(const char *nptr);
 long long	ft_atoi_long(const char *nptr);
+void		tab_free(char **tab);
+char		**ft_split(const char *s, char c);
 
 #endif

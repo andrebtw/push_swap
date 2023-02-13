@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_searching1.c                                  :+:      :+:    :+:   */
+/*   list_utils1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:24:17 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/13 16:47:45 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:01:44 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,40 +85,5 @@ int	last_element(t_list **lst)
 	tmp = *lst;
 	while (tmp->next)
 		tmp = tmp->next;
-	return (tmp->value);
-}
-
-int	second_element(t_list **lst)
-{
-	t_list	*tmp;
-
-	tmp = *lst;
-	tmp = tmp->next;
-	return (tmp->value);
-}
-
-int	before_last_element(t_list **lst)
-{
-	t_list	*tmp;
-	t_list	*tmp2;
-
-	tmp = *lst;
-	tmp2 = *lst;
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-		if (tmp->next)
-			tmp2 = tmp2->next;
-	}
-	return (tmp2->value);
-}
-
-int	third_element(t_list **lst)
-{
-	t_list	*tmp;
-
-	tmp = *lst;
-	tmp = tmp->next;
-	tmp = tmp->next;
 	return (tmp->value);
 }
