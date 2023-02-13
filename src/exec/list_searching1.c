@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:24:17 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/13 15:07:30 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:47:45 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,23 @@ int	is_sorted(t_list **lst, int inverse)
 	return (1);
 }
 
+int	list_size(t_list **lst)
+{
+	int		i;
+	t_list	*tmp;
+
+	tmp = *lst;
+	i = 0;
+	if (!tmp)
+		return (0);
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i + 1);
+}
+
 int	list_max(t_list **lst)
 {
 	int		max_nb;
@@ -57,7 +74,7 @@ int	top_element(t_list **lst)
 
 	tmp = *lst;
 	if (!tmp)
-		return (0);
+		return (-1);
 	return (tmp->value);
 }
 
