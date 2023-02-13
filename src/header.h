@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/10 16:53:42 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:26:57 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,16 @@ int			two_(t_stack *stack, char c);
 int			three_(t_stack *stack, char c, int inverse);
 int			four_(t_stack *stack);
 int			five_(t_stack *stack);
+int			radix(t_stack *stack);
+int			list_min_modulo(t_list **lst, int modulo);
+int			find_same_nb(t_list **lst, int nb);
 
+typedef struct s_radix
+{
+	int		min_nb;
+	int		modulo;
+	int		same_nb;
+}	t_radix;
 
 /* LIBC FUNCTIONS */
 size_t		ft_strlen(char *string);

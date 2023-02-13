@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:24:17 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/10 16:53:26 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:07:30 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	top_element(t_list **lst)
 	t_list	*tmp;
 
 	tmp = *lst;
+	if (!tmp)
+		return (0);
 	return (tmp->value);
 }
 

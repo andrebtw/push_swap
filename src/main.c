@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:07:50 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/10 17:07:48 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:14:27 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	init(int args, char **argv)
 	exec(args, &stack);
 
 	
-	/*printf("A :\n");
+	printf("A :\n");
 	printlist(&(stack.a));
 	printf("\n");
 	printf("B :\n");
-	printlist(&(stack.b));*/
+	printlist(&(stack.b));
 	freelst(&(stack.a));
 	freelst(&(stack.b));
 	return (EXIT_SUCCESS);
