@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:05:34 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/14 16:56:56 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:56:12 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,35 @@ int	nb_size_bits(int number)
 	return (i);
 }
 
-int	radix_loop(t_radix *radix, t_stack *stack)
+int	sort(t_radix *radix, t_stack *stack)
 {
-	int	bit_size;
 	int	size;
 
 	size = radix->list_size;
-	bit_size = nb_size_bits(size);
+	while (size)
+	{
+		if (((top_element(&(stack->a)) >> radix->bin_index) & 1) == 1)
+		{
+			if (rotate(stack, 'a') == MALLOC_ERR)
+				return (MALLOC_ERR);
+		}
+		else
+			if (push(stack, 'b') == MALLOC_ERR)
+				return (MALLOC_ERR);
+		size--;
+	}
+	return (EXIT_SUCCESS);
+}
+
+int	radix_loop(t_radix *radix, t_stack *stack)
+{
+	int	bit_size;
+
+	bit_size = nb_size_bits(radix->list_size);
 	while (bit_size)
 	{
-		size = radix->list_size;
-		while (size)
-		{
-			if (((top_element(&(stack->a)) >> radix->bin_index) & 1) == 1)
-			{
-				if (rotate(stack, 'a') == MALLOC_ERR)
-					return (MALLOC_ERR);
-			}
-			else
-			{
-				if (push(stack, 'b') == MALLOC_ERR)
-					return (MALLOC_ERR);
-			}
-			size--;
-		}
+		if (sort(radix, stack) == MALLOC_ERR)
+			return (MALLOC_ERR);
 		while (top_element(&(stack->b)) != -1)
 		{
 			if (push(stack, 'a') == MALLOC_ERR)

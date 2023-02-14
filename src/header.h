@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/14 17:00:58 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:43:30 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,20 @@ int			third_element(t_list **lst);
 int			two_(t_stack *stack, char c);
 int			three_(t_stack *stack, char c, int inverse);
 int			four_(t_stack *stack);
+
+typedef struct s_five
+{
+	int	counter;
+	int	max_nb;
+	int	max_nb2;
+	int	reverse;
+}	t_five;
+
 int			five_(t_stack *stack);
+int			loop_reverse2(t_stack *stack, t_five *five);
+int			loop_not_reverse(t_stack *stack, t_five *five);
+int			loop_reverse(t_stack *stack, t_five *five);
+int			main_loop(t_stack *stack, t_five *five);
 int			radix(t_stack *stack);
 int			list_size(t_list **lst);
 int			list_max2(t_list **lst, int max_nb);

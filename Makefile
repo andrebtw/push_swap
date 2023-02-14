@@ -6,7 +6,7 @@
 #    By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 16:58:58 by anrodri2          #+#    #+#              #
-#    Updated: 2023/02/14 16:01:07 by anrodri2         ###   ########.fr        #
+#    Updated: 2023/02/14 17:34:32 by anrodri2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS =	$(SRC_DIR)/main.c \
 		$(SRC_DIR)/exec/three_.c \
 		$(SRC_DIR)/exec/four_.c \
 		$(SRC_DIR)/exec/five_.c \
+		$(SRC_DIR)/exec/five_2.c \
 		$(SRC_DIR)/exec/radix.c \
 		$(SRC_DIR)/lib/ft_putstr.c \
 		$(SRC_DIR)/lib/ft_strlen.c \
