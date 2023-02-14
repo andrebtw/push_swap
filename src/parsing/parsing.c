@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:19:01 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/13 19:32:18 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:10:51 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	stack_create(t_stack *stack, t_parsing *parsing)
 			return (MALLOC_ERR);
 		i++;
 	}
-	free(parsing->index_list);
 	return (EXIT_SUCCESS);
 }
 
@@ -87,10 +86,17 @@ int	parsing(char **argv, t_stack *stack)
 		return (MALLOC_ERR);
 	stack->b = NULL;
 	if (list_create(argv, &parsing_v) == MALLOC_ERR)
-		return (MALLOC_ERR);
+		return (free(parsing_v.list), MALLOC_ERR);
 	if (list_index(&parsing_v) == MALLOC_ERR)
-		return (MALLOC_ERR);
+		return (free(parsing_v.list), MALLOC_ERR);
 	if (stack_create(stack, &parsing_v) == MALLOC_ERR)
+	{
+		free(parsing_v.list);
+		free(parsing_v.index_list);
+		freelst(&(stack->a));
 		return (MALLOC_ERR);
-	return (free(parsing_v.list), EXIT_SUCCESS);
+	}
+	free(parsing_v.list);
+	free(parsing_v.index_list);
+	return (EXIT_SUCCESS);	
 }

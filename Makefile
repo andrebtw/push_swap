@@ -6,7 +6,7 @@
 #    By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 16:58:58 by anrodri2          #+#    #+#              #
-#    Updated: 2023/02/13 20:03:33 by anrodri2         ###   ########.fr        #
+#    Updated: 2023/02/14 16:01:07 by anrodri2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 .PHONY: $(NAME) all clean fclean re
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall
+CFLAGS = -Wall -Werror -Wextra 
 
 #### DIRECTORIES ####
 SRC_DIR = src

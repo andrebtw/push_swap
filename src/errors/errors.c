@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:45:15 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/13 20:23:18 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:05:49 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_mult_size(char **argv)
 	{
 		tab_index = 0;
 		if (ft_atoi_long(argv[i]) > INT_MAX || ft_atoi_long(argv[i]) < INT_MIN)
-			return (error_printing());
+			return (free(tab), error_printing());
 		while (tab_index != tab_size)
 		{
 			if (ft_atoi_long(argv[i]) == tab[tab_index])
@@ -66,31 +66,10 @@ int	check_chars(char **argv)
 	return (EXIT_SUCCESS);
 }
 
-int	check_one_nb(char **argv)
-{
-	int	i;
-
-	i = 0;
-	if (!argv[1][0])
-		return (error_printing());
-	while (argv[1][i])
-	{
-		if (!ft_isdigit(argv[1][i]))
-			if (argv[1][i] != '-')
-				return (error_printing());
-		if (argv[1][i] == '-' && !ft_isdigit(argv[1][i + 1]))
-			return (error_printing());
-		i++;
-	}
-	return (EXIT_SUCCESS);
-}
-
 int	errors(int argc, char **argv)
 {
 	if (argc == 1)
 		return (ERROR);
-	if (argc == 2)
-		return (check_one_nb(argv));
 	if (check_chars(argv) != EXIT_SUCCESS)
 		return (ERROR);
 	if (check_mult_size(argv) != EXIT_SUCCESS)
