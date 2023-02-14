@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 17:19:01 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/14 16:10:51 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:49:35 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,5 @@ int	parsing(char **argv, t_stack *stack)
 	}
 	free(parsing_v.list);
 	free(parsing_v.index_list);
-	return (EXIT_SUCCESS);	
+	return (EXIT_SUCCESS);
 }

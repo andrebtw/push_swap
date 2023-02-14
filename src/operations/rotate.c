@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 15:31:57 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/10 12:52:47 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:21:08 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,30 @@ static int	rotate_list(t_list **lst, char *operation)
 	return (EXIT_SUCCESS);
 }
 
-void	rotate(t_stack *stack, char c)
+int	rotate(t_stack *stack, char c)
 {
 	if (c == 'a')
 	{
 		if (!stack->a)
-			return ;
-		rotate_list(&(stack->a), "ra\n");
+			return (EXIT_SUCCESS);
+		if (rotate_list(&(stack->a), "ra\n") == MALLOC_ERR)
+			return (MALLOC_ERR);
 	}
 	if (c == 'b')
 	{
 		if (!stack->b)
-			return ;
-		rotate_list(&(stack->b), "rb\n");
+			return (EXIT_SUCCESS);
+		if (rotate_list(&(stack->b), "rb\n") == MALLOC_ERR)
+			return (MALLOC_ERR);
 	}
 	if (c == 'r')
 	{
 		if (!stack->b || !stack->a)
-			return ;
-		rotate_list(&(stack->a), "rr\n");
-		rotate_list(&(stack->b), NULL);
+			return (EXIT_SUCCESS);
+		if (rotate_list(&(stack->a), "rr\n") == MALLOC_ERR)
+			return (MALLOC_ERR);
+		if (rotate_list(&(stack->b), NULL) == MALLOC_ERR)
+			return (MALLOC_ERR);
 	}
+	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 13:22:51 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/13 19:57:25 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:07:06 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,54 +64,62 @@ void	config_and_reverse(t_stack *stack, t_five *five)
 	push_close(stack, five);
 }
 
-void	loop_not_reverse(t_stack *stack, t_five *five)
+int	loop_not_reverse(t_stack *stack, t_five *five)
 {
 	if (five->max_nb2 == top_element(&(stack->a)))
 	{
 		five->counter++;
-		push(stack, 'b');
+		if (push(stack, 'b') == MALLOC_ERR)
+			return (MALLOC_ERR);
 		if (five->max_nb == top_element(&(stack->a)))
 		{
 			five->counter++;
-			push(stack, 'b');
+			if (push(stack, 'b') == MALLOC_ERR)
+				return (MALLOC_ERR);
 		}
 	}
 	if (five->max_nb == top_element(&(stack->a)))
 	{
 		five->counter++;
-		push(stack, 'b');
+		if (push(stack, 'b') == MALLOC_ERR)
+			return (MALLOC_ERR);
 		if (five->max_nb2 == top_element(&(stack->a)))
 		{
 			five->counter++;
-			push(stack, 'b');
+			if (push(stack, 'b') == MALLOC_ERR)
+				return (MALLOC_ERR);
 		}
 	}
 }
 
-void	loop_reverse(t_stack *stack, t_five *five)
+int	loop_reverse(t_stack *stack, t_five *five)
 {
 	if (five->max_nb == last_element(&(stack->a)))
 	{
 		five->counter++;
 		reverse_rotate(stack, 'a');
-		push(stack, 'b');
+		if (push(stack, 'b') == MALLOC_ERR)
+			return (MALLOC_ERR);
 		if (five->max_nb2 == last_element(&(stack->a)))
 		{
 			five->counter++;
 			reverse_rotate(stack, 'a');
-			push(stack, 'b');
+			if (push(stack, 'b') == MALLOC_ERR)
+				return (MALLOC_ERR);
 		}
 	}
 	if (five->max_nb2 == last_element(&(stack->a)))
 	{
 		five->counter++;
 		reverse_rotate(stack, 'a');
-		push(stack, 'b');
+		if (push(stack, 'b') == MALLOC_ERR)
+			return (MALLOC_ERR);
 		if (five->max_nb == last_element(&(stack->a)))
 		{
 			five->counter++;
 			reverse_rotate(stack, 'a');
-			push(stack, 'b');
+			if (push(stack, 'b') == MALLOC_ERR)
+				return (MALLOC_ERR);
 		}
 	}
 }
@@ -123,19 +131,26 @@ int	five_(t_stack *stack)
 	config_and_reverse(stack, &five);
 	while (five.counter < 2)
 	{
-		loop_not_reverse(stack, &five);
+		if (loop_not_reverse(stack, &five) == MALLOC_ERR)
+			return (MALLOC_ERR);
 		if (five.reverse)
-			loop_reverse(stack, &five);
+		{
+			if (loop_reverse(stack, &five) == MALLOC_ERR)
+				return (MALLOC_ERR);
+		}
 		if (!five.reverse && five.counter < 2)
-			rotate(stack, 'a');
+		{
+			if (rotate(stack, 'a') == MALLOC_ERR)
+				return (MALLOC_ERR);
+		}
 		else if (five.reverse == 1 && five.counter < 2)
 			reverse_rotate(stack, 'a');
 	}
 	three_(stack, 'a', 0);
-	push(stack, 'a');
-	push(stack, 'a');
+	if (push(stack, 'a') == MALLOC_ERR || push(stack, 'a') == MALLOC_ERR)
+		return (MALLOC_ERR);
 	two_(stack, 'a');
-	rotate(stack, 'a');
-	rotate(stack, 'a');
+	if (rotate(stack, 'a') == MALLOC_ERR || rotate(stack, 'a') == MALLOC_ERR)
+		return (MALLOC_ERR);
 	return (EXIT_SUCCESS);
 }

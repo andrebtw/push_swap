@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 16:08:45 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/14 16:09:59 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:00:58 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		freelst(t_list	**lst);
 void		printlist(t_list **lst);
 int			addendvalue(t_list **lst, long long value);
 void		addfrontlst(t_list **lst, t_list *new);
-void		createarglst(t_list **lst, long long value);
+int			createarglst(t_list **lst, long long value);
 
 /* STRUCTS */
 typedef struct s_stack
@@ -65,12 +65,11 @@ typedef struct s_parsing
 	int			list_size;
 	int			is_quoted;
 }	t_parsing;
-# define USED_NB -199
 
 /* OPERATIONS */
 void		swap(t_stack *stack, char c);
-void		push(t_stack *stack, char c);
-void		rotate(t_stack *stack, char c);
+int			push(t_stack *stack, char c);
+int			rotate(t_stack *stack, char c);
 void		reverse_rotate(t_stack *stack, char c);
 
 /* EXEC */
@@ -103,7 +102,5 @@ int			ft_isdigit(int c);
 size_t		ft_tablen(char **tab);
 int			ft_atoi(const char *nptr);
 long long	ft_atoi_long(const char *nptr);
-void		tab_free(char **tab);
-char		**ft_split(const char *s, char c);
 
 #endif

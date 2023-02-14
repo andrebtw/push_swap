@@ -6,7 +6,7 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 17:34:29 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/13 20:05:12 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:16:17 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,12 @@ t_list	*createlst(long long value)
 	return (r_list);
 }
 
-void	createarglst(t_list **lst, long long value)
+int	createarglst(t_list **lst, long long value)
 {
 	*lst = malloc (sizeof(t_list));
 	if (!(*lst))
-		return ;
+		return (MALLOC_ERR);
 	(*lst)->value = value;
 	(*lst)->next = NULL;
+	return (EXIT_SUCCESS);
 }

@@ -6,11 +6,17 @@
 /*   By: anrodri2 <anrodri2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:02:57 by anrodri2          #+#    #+#             */
-/*   Updated: 2023/02/07 19:56:51 by anrodri2         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:25:40 by anrodri2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
+
+void	print_operation(char *operation)
+{
+	if (operation)
+		ft_putstr(operation);
+}
 
 static int	push_list(t_list **a, t_list **b, char *operation)
 {
@@ -23,9 +29,9 @@ static int	push_list(t_list **a, t_list **b, char *operation)
 	tmp_b = *b;
 	if (!tmp_a)
 	{
-		createarglst(&(*a), tmp_b->value);
-		if (operation)
-			ft_putstr(operation);
+		if (createarglst(&(*a), tmp_b->value) == MALLOC_ERR)
+			return (MALLOC_ERR);
+		print_operation(operation);
 		delete = *b;
 		*b = delete->next;
 		return (free(delete), EXIT_SUCCESS);
@@ -36,23 +42,24 @@ static int	push_list(t_list **a, t_list **b, char *operation)
 	addfrontlst(&(*a), new_list);
 	delete = *b;
 	*b = delete->next;
-	if (operation)
-		ft_putstr(operation);
+	print_operation(operation);
 	return (free(delete), delete = NULL, EXIT_SUCCESS);
 }
 
-void	push(t_stack *stack, char c)
+int	push(t_stack *stack, char c)
 {
 	if (c == 'a')
 	{
 		if (!stack->b)
-			return ;
+			return (EXIT_SUCCESS);
 		push_list(&(stack->a), &(stack->b), "pa\n");
 	}
 	if (c == 'b')
 	{
 		if (!stack->a)
-			return ;
-		push_list(&(stack->b), &(stack->a), "pb\n");
+			return (EXIT_SUCCESS);
+		if (push_list(&(stack->b), &(stack->a), "pb\n") == MALLOC_ERR)
+			return (MALLOC_ERR);
 	}
+	return (EXIT_SUCCESS);
 }
